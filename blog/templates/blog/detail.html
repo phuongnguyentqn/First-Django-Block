@@ -1,0 +1,41 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Results Page</title>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+	</head>
+	<body>
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <a class="navbar-brand" id="page-name" href="{% url 'blog:index' %}">FirstApp</a>
+		    </div>
+		    <ul class="nav navbar-nav">
+		      <li><a href="{% url 'blog:index' %}">Home</a></li> 
+		      <li class="active"><a href="#">Detail</a></li>
+		    </ul>
+		  </div>
+		</nav>
+		<div class="container-fluid main">
+			<h1>{{ question.question_text }}</h1>
+			{% if error_message %}
+				<p id="error"><strong> {{error_message}} </strong></p>
+			{% endif %}
+			<form action="{% url 'blog:vote' question.id %}" method="post">
+				{% csrf_token %}
+				<ul>
+					{% for choice in question.choice_set.all %}
+						<li>
+							<input type="radio" name="choice" id="forloop.counter" value="{{ choice.id }}" />
+							<label for="choice{{ forloop.counter }}"> {{choice.text_of_choice}}</label><br/>
+						</li>
+					{% endfor %}
+				</ul>
+				<input type="submit" value="Vote" id="btn-submit"/>
+			</form>
+		</div>
+	</body>
+</html>
