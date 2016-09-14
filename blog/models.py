@@ -1,9 +1,12 @@
 import datetime
 from django.db import models
 
-class Question(models.Model):   
+class Question(models.Model):
     question_text =  models.CharField(max_length=200)
-    pub_date = models.DateTimeField('published date', default=datetime.datetime.now) 
+    pub_date = models.DateTimeField(
+        'published date',
+        default=datetime.datetime.now
+    )
 
     def __str__(self):
         return self.question_text
@@ -24,4 +27,4 @@ class Choice(models.Model):
 
     def record_vote(self):
         self.votes += 1
-        self.save() 
+        self.save()
