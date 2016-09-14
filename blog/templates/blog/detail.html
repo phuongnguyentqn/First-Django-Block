@@ -24,7 +24,7 @@
 			{% if error_message %}
 				<p id="error"><strong> {{error_message}} </strong></p>
 			{% endif %}
-			<form action="{% url 'blog:vote' question.id %}" method="post">
+			<form action="{% url 'blog:votes' question.id %}" method="post">
 				{% csrf_token %}
 				<ul>
 					{% for choice in question.choice_set.all %}

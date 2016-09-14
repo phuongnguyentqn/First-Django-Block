@@ -1,0 +1,63 @@
+[
+    {
+        "pk": 1, 
+        "model": "blog.Question", 
+        "fields": {
+            "pub_date": "2016-09-13 23:44:02", 
+            "question_text": "Are you learning about testing in Django?"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "blog.Question", 
+        "fields": {
+            "pub_date": "2011-09-13 14:42:52", 
+            "question_text": "How do you feel today?"
+        }
+    },
+    {
+        "pk": 1, 
+        "model": "blog.Choice", 
+        "fields": {
+            "votes": 1, 
+            "question": 1, 
+            "text_of_choice": "Yes"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "blog.Choice", 
+        "fields": {
+            "votes": 0, 
+            "question": 1, 
+            "text_of_choice": "No"
+        }
+    },
+    {
+        "pk": 3, 
+        "model": "blog.Choice", 
+        "fields": {
+            "votes": 1, 
+            "question": 2, 
+            "text_of_choice": "Alright."
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "blog.Choice", 
+        "fields": {
+            "votes": 0, 
+            "question": 2, 
+            "text_of_choice": "Meh."
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "blog.Choice", 
+        "fields": {
+            "votes": 0, 
+            "question": 2, 
+            "text_of_choice": "Not so good."
+        }
+    }
+]
